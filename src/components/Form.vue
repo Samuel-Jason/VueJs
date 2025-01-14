@@ -7,17 +7,20 @@
     </form>
     <div>
         <H2>Meu Fomulario</H2>
-        <Form action="">
+        <Form action="" @submit="enviarFormulario()">
             <div>
-                <InputText />
+                <input type="text" v-model="name"
             </div>
             <div>
-                <InputText />
+                <input type="text" v-model="email"
             </div>
             <div>
                 <Submit />
             </div>
         </Form>
+        <p>Conteudo</p>
+        <p>Conteudo</p>
+        <p>Conteudo</p>
     </div>
 </template>
 
@@ -30,6 +33,31 @@
         components: {
             InputText,
             Submit
+        },
+        data(){
+            return{
+                name: 'Samuel',
+                email: 'Samuelljason@Gmail.com'
+            }
+        },
+        methods:{
+            enviarFormulario(e){
+                e.preventDefault();  // Para prevenir o comportamento padrão do formulário
+                
+                const name = this.name;
+                const email = this.email;
+
+                console.log('Formulário enviado');
+                console.log('NOME:' + name);
+                console.log('EMAIL:' + email);
+
+            }
         }
     }
 </script>
+
+<style>
+    p{
+        margin: 50px;
+    }
+</style>
