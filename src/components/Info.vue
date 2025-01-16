@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p v-if="Esta_Trabalhando">Estou trabalhando no momento</p>
+        <p v-if="esta_Trabalhando">Estou trabalhando no momento</p>
         <p v-else>Eu não estou trabalhando</p>
         <p>Utilizo as seguintes tecnologias:</p>
         <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
@@ -19,7 +19,6 @@
                 <p><strong>Technology:</strong> {{ tech.language }}</p>
             </li>
         </ul>
-
         <Picture />
     </div>
 </template>
@@ -32,11 +31,13 @@
         components: {
             Picture
         },
+        props: {
+            email: String,
+            esta_Trabalhando: Boolean
+        },
         data() {
             return {
-                Esta_Trabalhando: true,
                 mostrar_email: true,
-                email: 'contato@email.com',
                 meu_link: 'http://google.com',
                 lista: ["João", "Samuel", "Dalila", "Ana"],
                 front_tecnologias: [
